@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from './Header';
 
 
 const Login: React.FC = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const email = useRef(null)
+    const password = useRef(null)
+    const name = useRef(null)
     const [error, setError] = useState('');
     const [isSignup, setIsSignup] = useState(false);
-    const [name, setName] = useState('');
+
 
 
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            // Add your login logic here
+            console.log('Login successful',email?.current?.value, password?.current?.value);
         } catch (err) {
             setError('Failed to login');
         }
@@ -41,8 +42,7 @@ const Login: React.FC = () => {
                     <input
                         type="text"
                         id="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        ref={name}
                         required
                         className='w-full bg-gray-700 text-white rounded p-2 m-2'
                         placeholder='Your name'
@@ -53,8 +53,7 @@ const Login: React.FC = () => {
                 <input
                     type="email"
                     id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    ref={email}
                     required
                     className='w-full bg-gray-700 text-white rounded p-2 m-2'
                     placeholder='Email'
@@ -66,15 +65,14 @@ const Login: React.FC = () => {
                 <input
                     type="password"
                     id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    ref={password}
                     required
                     className='w-full bg-gray-700 text-white rounded p-2 m-2'
                     placeholder='Password'
                 />
 
-                <button className="bg-red-500 w-full rounded text-white p-2 m-2" type="submit">{!isSignup ? "Sign In" : "Sign Up"}</button>
-                <p className='text-white' onClick={handleToggle}> {isSignup ? "Sign In" : "Don't have account? Sign Up here"} </p>
+                <button className="bg-red-500 w-full rounded text-white p-2 m-2" type="submit" onClick={handleLogin}>{!isSignup ? "Sign In" : "Sign Up"}</button>
+                <p className='text-white cursor-pointer' onClick={handleToggle}> {isSignup ? "Sign In" : "Don't have account? Sign Up here"} </p>
             </form>
 
 
