@@ -38,7 +38,7 @@ const Login: React.FC = () => {
             </div> */}
 
 
-            <form className='absolute my-36 bg-black p-12  md:w-4/12 rounded-2xl bg-opacity-50 mx-auto left-0 right-0 '>
+            <form className='absolute my-36 bg-red-300 p-12  md:w-4/12 rounded-2xl bg-opacity-50 mx-auto left-0 right-0 '>
 
                 <h1 className='text-2xl text-white mx-2 py-4'>{!isSignup ? "Sign In" : "Sign Up"}</h1>
                 {isSignup &&
@@ -75,7 +75,7 @@ const Login: React.FC = () => {
                 />
 
                 <button className="bg-red-500 w-full rounded text-white p-2 m-2" type="submit" onClick={handleLogin}>{!isSignup ? "Sign In" : "Sign Up"}</button>
-                <p className='text-white cursor-pointer' onClick={handleToggle}> {isSignup ? "Sign In" : "Don't have account? Sign Up here"} </p>
+                <p className='text-white cursor-pointer' onClick={handleToggle}> {isSignup ? "Are you already registered? Sign In" : "Don't have account? Sign Up here"} </p>
             </form>
 
 

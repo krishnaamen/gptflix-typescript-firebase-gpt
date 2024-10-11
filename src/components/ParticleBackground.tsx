@@ -39,7 +39,7 @@ const ParticleBackground: React.FC = () => {
         () => ({
             background: {
                 color: {
-                    value: "#31B073",
+                    value: "#0f0f0f",
                 },
             },
             fpsLimit: 120,
