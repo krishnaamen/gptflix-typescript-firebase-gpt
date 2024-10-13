@@ -15,7 +15,7 @@ const Header: React.FC = () => {
 
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
 
                 const { uid, email, displayName, photoURL } = user;
@@ -32,6 +32,8 @@ const Header: React.FC = () => {
 
             }
         });
+        return () => unsubscribe();
+
     }, []);
 
     const handleLogout = () => {
