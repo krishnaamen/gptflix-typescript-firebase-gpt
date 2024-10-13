@@ -46,7 +46,7 @@ const Login: React.FC = () => {
 
 
                         updateProfile(user, {
-                            displayName: data.name, photoURL: "https://avatars.githubusercontent.com/u/24782689?v=4"
+                            displayName: data.name, photoURL: "https://avatars.githubusercontent.com/u/24782689"
                         }).then(() => {
                             if (auth.currentUser) {
                                 const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -69,7 +69,6 @@ const Login: React.FC = () => {
 
 
                         console.log(user);
-                        navigate('/browse');
                         // ...
                     })
                     .catch((error) => {
@@ -93,7 +92,6 @@ const Login: React.FC = () => {
                                 displayName: displayName,
                                 photoURL: photoURL
                             }));
-                            navigate('/browse');
                         } else {
                             setError('User not found');
                         }
