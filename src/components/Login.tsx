@@ -1,23 +1,114 @@
 import React, { useState, useRef } from 'react';
 import Header from './Header';
 import ParticleBackground from './ParticleBackground';
+import { checkValiddata } from '../utils/validate'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from '../utils/firebase';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
+
 
 
 const Login: React.FC = () => {
-    const email = useRef(null)
-    const password = useRef(null)
-    const name = useRef(null)
+    const email = useRef<HTMLInputElement>(null)
+    const password = useRef<HTMLInputElement>(null)
+    const name = useRef<HTMLInputElement>(null)
     const [error, setError] = useState('');
     const [isSignup, setIsSignup] = useState(false);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
 
 
 
-    const handleLogin = async (e: React.FormEvent) => {
+
+    const handleButton = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        const data = {
+            email: email.current?.value || '',
+            password: password.current?.value || '',
+            name: name.current?.value || ''
+        };
         try {
-            console.log('Login successful', email?.current?.value, password?.current?.value);
-        } catch (err) {
+            const messsage = checkValiddata(data);
+            if (messsage !== true) {
+                setError(messsage);
+                return;
+            }
+            if (isSignup) {
+
+                createUserWithEmailAndPassword(auth, data.email, data.password)
+                    .then((userCredential) => {
+                        // Signed up 
+                        const user = userCredential.user;
+
+
+                        updateProfile(user, {
+                            displayName: data.name, photoURL: "https://avatars.githubusercontent.com/u/24782689?v=4"
+                        }).then(() => {
+                            if (auth.currentUser) {
+                                const { uid, email, displayName, photoURL } = auth.currentUser;
+                                dispatch(addUser({
+                                    uid: uid,
+                                    email: email,
+                                    displayName: displayName,
+                                    photoURL: photoURL
+                                }));
+                                navigate('/browse');
+                            } else {
+                                setError('User not found');
+                            }
+                        }).catch(() => {
+                            // An error occurred
+                            // ...
+                        });
+
+
+
+
+                        console.log(user);
+                        navigate('/browse');
+                        // ...
+                    })
+                    .catch((error) => {
+                        setError(error.message);
+                        console.error(error.message);
+                        // ..
+                    });
+            } else {
+                signInWithEmailAndPassword(auth, data.email, data.password)
+                    .then((userCredential) => {
+                        // Signed in 
+                        const user = userCredential.user;
+
+                        console.log("after update user", user);
+
+                        if (auth.currentUser) {
+                            const { uid, email, displayName, photoURL } = auth.currentUser;
+                            dispatch(addUser({
+                                uid: uid,
+                                email: email,
+                                displayName: displayName,
+                                photoURL: photoURL
+                            }));
+                            navigate('/browse');
+                        } else {
+                            setError('User not found');
+                        }
+
+                        // ...
+                    })
+                    .catch((error) => {
+                        setError(error.message);
+                        console.error(error.message);
+                    });
+
+
+
+            }
+        } catch {
             setError('Failed to login');
         }
     };
@@ -73,8 +164,9 @@ const Login: React.FC = () => {
                     className='w-full bg-gray-700 text-white rounded p-2 m-2'
                     placeholder='Password'
                 />
+                <p className='text-red-500'>{error}</p>
 
-                <button className="bg-red-500 w-full rounded text-white p-2 m-2" type="submit" onClick={handleLogin}>{!isSignup ? "Sign In" : "Sign Up"}</button>
+                <button className="bg-red-400 w-full rounded bg-opacity-50 text-white p-2 m-2" type="submit" onClick={handleButton}>{!isSignup ? "Sign In" : "Sign Up"}</button>
                 <p className='text-white cursor-pointer' onClick={handleToggle}> {isSignup ? "Are you already registered? Sign In" : "Don't have account? Sign Up here"} </p>
             </form>
 
