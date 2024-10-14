@@ -11,7 +11,7 @@ const MainContainer = () => {
 
     return (
 
-        <div className='text-white'>
+        <div className='text-white flex'>
             <VideoTitle title={movies[1].title} overview={movies[0].overview} />
             <VideoBackground movieid={movies[0].id} />
 
