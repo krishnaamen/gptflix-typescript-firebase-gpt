@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { auth } from '../utils/firebase'
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
@@ -27,7 +27,7 @@ const Header: React.FC = () => {
 
 
             } else {
-                dispatch(removeUser({}));
+                dispatch(removeUser());
                 navigate('/');
 
 
@@ -35,11 +35,11 @@ const Header: React.FC = () => {
         });
         return () => unsubscribe();
 
-    }, []);
+    }, [dispatch, navigate]);
 
     const handleLogout = () => {
         signOut(auth).then(() => {
-            dispatch(removeUser({}));
+            dispatch(removeUser());
             navigate('/');
         }).catch(() => {
             // An error happened.

@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect} from 'react'
 import { API_OPTIONS } from '../utils/constant';
 import { addTrailerVideo } from '../utils/movieSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-const VideoBackground = ({ movieid }) => {
-    const url = useSelector((store: { movies: { trailerVideo: any } }) => store.movies?.trailerVideo);
+interface VideoBackgroundProps {
+    movieid: string;
+}
+
+const VideoBackground = ({ movieid }: VideoBackgroundProps) => {
+    const url = useSelector((store: { movies: { trailerVideo: string } }) => store.movies?.trailerVideo);
     const dispatch = useDispatch();
     const getMovieVideo = async () => {
 
