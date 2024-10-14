@@ -1,22 +1,29 @@
 import React from 'react';
 import Header from './Header';
 import ParticleBackground from './ParticleBackground';
+import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
+import MainContainer from './MainContainer';
+import SecondaryContainer from './SecondaryContainer';
 
 const Browse: React.FC = () => {
+    useNowPlayingMovies();
+
     return (
-        <div>
+        <div className="relative">
+            {/* Particle Background in the background */}
+            <ParticleBackground />
 
-            <Header />
-            {/* <div className='mt-72'>
-                <ParticleBackground />
-            </div> */}
+            {/* Main content on top of the particles */}
+            <div className="relative z-10">
+                <Header />
+                <MainContainer />
+                <SecondaryContainer />
 
-
-            <div className='h-20 m-30 p-20'>
-                <h1 className='my-30'>Browse</h1>
-                <p>Welcome to the browse page!</p>
+                <div className="h-20 m-8 p-8">
+                    <h1 className="my-8">Browse</h1>
+                    <p>Welcome to the browse page!</p>
+                </div>
             </div>
-
         </div>
     );
 };

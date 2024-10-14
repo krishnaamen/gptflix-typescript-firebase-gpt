@@ -7,6 +7,7 @@ import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { USER_AVATAR } from '../utils/constant';
 
 
 
@@ -30,6 +31,7 @@ const Login: React.FC = () => {
             email: email.current?.value || '',
             password: password.current?.value || '',
             name: name.current?.value || ''
+            
         };
         try {
             const messsage = checkValiddata(data);
@@ -46,7 +48,7 @@ const Login: React.FC = () => {
 
 
                         updateProfile(user, {
-                            displayName: data.name, photoURL: "https://avatars.githubusercontent.com/u/24782689"
+                            displayName: data.name, photoURL: USER_AVATAR
                         }).then(() => {
                             if (auth.currentUser) {
                                 const { uid, email, displayName, photoURL } = auth.currentUser;

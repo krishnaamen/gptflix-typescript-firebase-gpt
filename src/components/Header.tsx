@@ -48,12 +48,20 @@ const Header: React.FC = () => {
     return (
 
         <>
-            <div className='flex justify-around z-50'>
+            <div className='flex justify-around z-50 p-2'>
                 <div className='w-screen z-50 px-8 py-2 bg-gradient-to-b from-black'>
-                    <img className='w-44' src={NETFLIX_LOGO} alt="logo" />
+                    <img className='w-44 h-20' src={NETFLIX_LOGO} alt="logo" />
                 </div>
-                {user && <><div className=''>
-                    <button onClick={handleLogout} className='w-20 h-20  bg-red-600 text-white z-30'>Logout</button></div><img className='w-15 p-4' src={user?.photoURL} alt="photo" /><h6 className='text-black'>{user?.displayName}</h6></>}
+                {user && <>
+                    <div className=' bg-red-600 text-white z-30'>
+                        <button onClick={handleLogout} className='w-20 h-20  bg-red-600 text-white z-30'>Logout</button>
+                    </div>
+                    <img className='w-15 bg-red-600 text-white z-30 p-4' src={user?.photoURL} alt="photo" />
+                    <div className=' bg-red-600 text-white z-30'>
+                        <button className='w-20 h-20  bg-red-600 text-white z-30'>{user?.displayName}</button>
+                    </div>
+
+                </>}
 
 
             </div>
