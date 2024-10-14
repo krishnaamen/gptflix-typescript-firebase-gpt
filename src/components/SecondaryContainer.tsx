@@ -7,11 +7,15 @@ const SecondaryContainer = () => {
         return <div className="text-white">Loading...</div>
     }
     const nowPlayingMovies = movies?.nowPlayingMovies;
+    const popularMovies = movies?.popularMovies;
+    const topRatedMovies = movies?.topRatedMovies;
+    const upcommingMovies = movies?.upcommingMovies;
     return (
-        <div >
+        <div className=" ">
             <MovieList movies={nowPlayingMovies} title="Now Playing" />
-            <MovieList movies={nowPlayingMovies} title="Comedy" />
-            <MovieList movies={nowPlayingMovies} title="Drama" />
+            <MovieList movies={popularMovies} title="Popular" />
+            <MovieList movies={topRatedMovies} title="Top Rated" />
+            <MovieList movies={upcommingMovies} title="Up Comming" />
         </div>
 
 

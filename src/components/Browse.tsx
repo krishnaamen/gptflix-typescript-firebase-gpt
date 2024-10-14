@@ -4,9 +4,16 @@ import ParticleBackground from './ParticleBackground';
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
 import MainContainer from './MainContainer';
 import SecondaryContainer from './SecondaryContainer';
+import usePopularMovies from '../hooks/usePopularMovies';
+import useTopRatedMovies from '../hooks/useTopRatedMovies';
+import useUpcommingMovies from '../hooks/useUpcommingMovies';
 
 const Browse: React.FC = () => {
     useNowPlayingMovies();
+    usePopularMovies();
+    useTopRatedMovies();
+    useUpcommingMovies();
+    
 
     return (
         <div className="relative">
