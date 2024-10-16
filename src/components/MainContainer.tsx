@@ -7,7 +7,6 @@ const MainContainer = () => {
     if (!movies) {
         return <div>Loading...</div>
     }
-    console.log('movie', movies[1]);
 
     return (
 

@@ -6,7 +6,6 @@ interface MovieCardsProps {
 }
 
 const MovieCards: React.FC<MovieCardsProps> = ({ title, poster_path }) => {
-    console.log('poster_path', `${POSTER_PATH}${poster_path}`);
 
     return (
         <div className="w-48 mr-4 flex scroll-m-1">

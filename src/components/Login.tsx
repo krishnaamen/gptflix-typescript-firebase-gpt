@@ -70,7 +70,6 @@ const Login: React.FC = () => {
 
 
 
-                        console.log(user);
                         // ...
                     })
                     .catch((error) => {
@@ -83,8 +82,7 @@ const Login: React.FC = () => {
                     .then((userCredential) => {
                         // Signed in 
                         const user = userCredential.user;
-
-                        console.log("after update user", user);
+                        console.log(user);
 
                         if (auth.currentUser) {
                             const { uid, email, displayName, photoURL } = auth.currentUser;

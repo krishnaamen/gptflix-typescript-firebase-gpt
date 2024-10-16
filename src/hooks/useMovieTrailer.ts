@@ -13,14 +13,12 @@ const useMovieTrailer = (movieid: string) => {
         
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movieid}/videos?language=en-US`, API_OPTIONS);
         const data = await response.json();
-        console.log("this is get movie data", data);
         interface Video {
             type: string;
             // Add other properties if needed
         }
         const trailers = data.results.filter((video: Video) => video.type === 'Trailer');
         const trailer = trailers.length ? trailers[0] : data.results[0];
-        console.log("this is trailer", trailer);
         const url = `https://www.youtube.com/embed/${trailer.key}`;
         dispatch(addTrailerVideo(url));
         
