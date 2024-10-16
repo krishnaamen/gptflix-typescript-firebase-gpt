@@ -71,7 +71,7 @@ const Header: React.FC = () => {
                     </div>
                     <img className='w-15 bg-red-600 text-white z-30 p-4' src={user?.photoURL} alt="photo" />
                     <div className=' bg-red-600 text-white z-30'>
-                        <button className='w-20 h-20  bg-red-600 text-blue-900 z-30 hover:underline' onClick={handleGptSearch}>GptSearch</button>
+                        <button className='w-20 h-20  bg-red-600 text-blue-900 z-30 hover:underline' onClick={handleGptSearch}>{searchView ? "Homepage" : "GptSearch"}</button>
                     </div>
                     <div className=' bg-red-600 text-white z-30'>
                         <button className='w-20 h-20  bg-red-600 text-blue-900 z-30 hover:underline'>{user?.displayName}</button>

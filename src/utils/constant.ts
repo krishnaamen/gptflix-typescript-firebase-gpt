@@ -5,7 +5,7 @@ export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1M2ZjYTcxMTE2ZjU5MjAwYzI1MGRkZjU4N2NjZWExYiIsIm5iZiI6MTcyODg4MjkzMy44NzcyMDgsInN1YiI6IjY3MGNhODEyMWNhNGMzOWZkZWViNzUwNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LJcWTlAmBPCox74AsCLYMRFMwjXIqa0HJTxaM4Fmpjo'
+    Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`
   }
 };
 export const POSTER_PATH = 'https://image.tmdb.org/t/p/w500';
