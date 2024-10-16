@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../utils/firebase'
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
@@ -59,7 +59,7 @@ const Header: React.FC = () => {
         <>
             <div className='flex justify-around z-50 p-2'>
                 <div className='w-screen z-50 px-8 py-2 bg-gradient-to-b from-black'>
-                    <img className='w-44 h-20' src={logo} alt="logo" />
+                    <Link to="/"><img className='w-44 h-20' src={logo} alt="logo" /></Link>
                 </div>
                 {user && <>
                     {searchView && <select name="" id="" className='bg-red-600 flex' onChange={handleLanguageChange}>

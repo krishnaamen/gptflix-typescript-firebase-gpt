@@ -7,7 +7,6 @@ import { useEffect } from "react";
 
 const useMovieTrailer = (movieid: string) => {
 
-
     const dispatch = useDispatch();
     const trailerVideo = useSelector((store: { movies: any }) => store.movies?.trailerVideo);
     const getMovieVideo = async () => {
