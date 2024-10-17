@@ -11,7 +11,7 @@ const SecondaryContainer = () => {
     const topRatedMovies = movies?.topRatedMovies;
     const upcommingMovies = movies?.upcommingMovies;
     return (
-        <div className=" ">
+        <div className="mt-32">
             <MovieList movies={nowPlayingMovies} title="Now Playing" />
             <MovieList movies={popularMovies} title="Popular" />
             <MovieList movies={topRatedMovies} title="Top Rated" />

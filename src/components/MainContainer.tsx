@@ -10,7 +10,7 @@ const MainContainer = () => {
 
     return (
 
-        <div className='text-white flex'>
+        <div className='text-white flex  pt-[30%] md:pt-0'>
             <VideoTitle title={movies[1].title} overview={movies[0].overview} />
             <VideoBackground movieid={movies[0].id} />
 

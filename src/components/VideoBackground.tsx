@@ -29,7 +29,7 @@ const VideoBackground = ({ movieid }: VideoBackgroundProps) => {
     }, [])
 
     return (
-        <div>
+        <div >
             <iframe className="w-screen aspect-video" src={url} title="YouTube video player" allow="accelerometer; autoPlay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"></iframe>
 
         </div>

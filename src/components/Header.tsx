@@ -64,11 +64,12 @@ const Header: React.FC = () => {
 
 
 
-                <div className=' bg-opacity-70 flex justify-center text-white z-30'>
-                    <img className='p-10 w-32  md:w-15 flex justify-center   text-white z-30 md:p-4' src={user?.photoURL} alt="photo" />
-                </div>
+
 
                 {user && <>
+                    <div className=' bg-opacity-70 flex justify-center text-white z-30'>
+                        <img className='p-10 w-32  md:w-15 flex justify-center   text-white z-30 md:p-4' src={user?.photoURL} alt="photo" />
+                    </div>
                     {searchView &&
                         <div className='bg-opacity-70 flex justify-center mb-2 md:mb-0 md:mr-1 text-white z-30'>
                             <select name="" id="" className='w-full md:w-24 rounded-lg  p-2 bg-red-700  justify-center flex md:w-30 md:h-10  text-blue-900 z-30 hover:underline' onChange={handleLanguageChange}>
@@ -85,7 +86,7 @@ const Header: React.FC = () => {
                         <button className='w-full mb-1 md:w-24 rounded-lg p-2 bg-red-700  justify-center flex  md:h-10  text-blue-900 z-30 hover:underline' onClick={handleGptSearch}>{searchView ? "Homepage" : "GptSearch"}</button>
                     </div>
                     <div className='bg-opacity-70 flex justify-center text-white  md:mr-1 z-30'>
-                        <button className='w-full mb-1 md:w-24 rounded-lg p-2 bg-red-700  justify-center flex  md:h-10  text-blue-900 z-30 hover:underline'>{user?.displayName}</button>
+                        <button className='w-full mb-1 md:mb-0 md:w-24 rounded-lg p-2 bg-red-700  justify-center flex  md:h-10  text-blue-900 z-30 hover:underline'>{user?.displayName}</button>
                     </div>
 
                 </>}
