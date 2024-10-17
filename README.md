@@ -1,24 +1,25 @@
 # Development Steps
 - Create React App using vite
-- Configured TailwindCSS
+- Configured                              #TailwindCSS
 - Header Component
 - Routing of App
 - Login Form
 - Sign Up Form
+- Integration of                        # particle.js
 - Form Validation
 - useRef Hook for Form Handling
-# Firebase Setup for Authentication
+- Firebase Setup for Authentication      #Firebase
 - Deploying the App to Production
 - Create Sign-Up User Account with Firebase
 - Implement Sign In User API
-# Created Redux Store with userSlice
+- Created Redux Store with userSlice    # Redux Store for state management
 - Implemented Sign Out Functionality
 - Update User Profile (Display Name and Profile Picture)
 - Fixed Sign-Up User Display Name and Profile Picture Update
 - Redirect to Login Page if the user is not logged in and tries to access /browse, and vice-versa
 - Unsubscribed from the onAuthStateChanged Firebase Callback
 - Added Hardcoded Values to the Constants File
-- Registered TMDB API, Created an App, and Obtained Access Token
+- Registered TMDB API, Created an App, and Obtained Access Token      #TMDB API
 - Fetched Data from TMDB 'Now Playing' Movies List API
 - Custom Hook for Now Playing Movies
 - Created movieSlice for Redux State Management
@@ -36,13 +37,14 @@
 - Created usePopularMovies Custom Hook
 - Implemented GPT Search Page
 - Added GPT Search Bar
-# Implemented Multi-Language Feature in the App
+- Implemented Multi-Language Feature in the App
 - Obtained OpenAI API Key
-# Integrated GPT Search API Call
+- Integrated GPT Search API Call                     # Integrating GPT3 Turbo api in app for suggestions.
 - Fetched GPT Movie Suggestions from TMDB
 - Created gptSlice and Added GPT Data to Store
 - Reused Movie List Component to Create Movie Suggestion Container
 - Optimized with Memoization
-- Added .env File for Environment Variables
+- Added .env File for Environment Variables          # Env files for protecting sensitive data
 - Added .env File to .gitignore
-# Made the Site Responsive
+- Added environmental variables in Netlify hosting plateform
+- Made the Site Responsive
