@@ -57,24 +57,35 @@ const Header: React.FC = () => {
     return (
 
         <>
-            <div className='flex justify-around z-50 p-2'>
-                <div className='w-screen z-50 px-8 py-2 bg-gradient-to-b from-black'>
+            <div className='flex flex-col md:flex-row md:justify-around p-2'>
+                <div className='w-screen z-50 px-8 py-2 flex justify-center  md:justify-between bg-gradient-to-b from-black'>
                     <Link to="/"><img className='w-44 h-20' src={logo} alt="logo" /></Link>
                 </div>
-                {user && <>
-                    {searchView && <select name="" id="" className='bg-red-600 flex' onChange={handleLanguageChange}>
-                        {SUPPORTED_LANGUAGES.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
-                    </select>}
 
-                    <div className=' bg-red-600 text-white z-30'>
-                        <button onClick={handleLogout} className='w-20 h-20  bg-red-600 text-blue-900 z-30 hover:underline'>Logout</button>
+
+
+                <div className=' bg-opacity-70 flex justify-center text-white z-30'>
+                    <img className='p-10 w-32  md:w-15 flex justify-center   text-white z-30 md:p-4' src={user?.photoURL} alt="photo" />
+                </div>
+
+                {user && <>
+                    {searchView &&
+                        <div className='bg-opacity-70 flex justify-center mb-2 md:mb-0 md:mr-1 text-white z-30'>
+                            <select name="" id="" className='w-full md:w-24 rounded-lg  p-2 bg-red-700  justify-center flex md:w-30 md:h-10  text-blue-900 z-30 hover:underline' onChange={handleLanguageChange}>
+                                {SUPPORTED_LANGUAGES.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
+                            </select>
+                        </div>
+                    }
+
+                    <div className=' bg-opacity-70 flex justify-center text-white md:mr-1 z-30'>
+                        <button onClick={handleLogout} className=' w-full mb-1 md:w-24 rounded-lg p-2 bg-red-700  justify-center flex md:h-10  text-blue-900 z-30 hover:underline'>Logout</button>
                     </div>
-                    <img className='w-15 bg-red-600 text-white z-30 p-4' src={user?.photoURL} alt="photo" />
-                    <div className=' bg-red-600 text-white z-30'>
-                        <button className='w-20 h-20  bg-red-600 text-blue-900 z-30 hover:underline' onClick={handleGptSearch}>{searchView ? "Homepage" : "GptSearch"}</button>
+
+                    <div className=' bg-opacity-70 flex justify-center text-white  md:mr-1 z-30'>
+                        <button className='w-full mb-1 md:w-24 rounded-lg p-2 bg-red-700  justify-center flex  md:h-10  text-blue-900 z-30 hover:underline' onClick={handleGptSearch}>{searchView ? "Homepage" : "GptSearch"}</button>
                     </div>
-                    <div className=' bg-red-600 text-white z-30'>
-                        <button className='w-20 h-20  bg-red-600 text-blue-900 z-30 hover:underline'>{user?.displayName}</button>
+                    <div className='bg-opacity-70 flex justify-center text-white  md:mr-1 z-30'>
+                        <button className='w-full mb-1 md:w-24 rounded-lg p-2 bg-red-700  justify-center flex  md:h-10  text-blue-900 z-30 hover:underline'>{user?.displayName}</button>
                     </div>
 
                 </>}
