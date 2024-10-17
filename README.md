@@ -39,6 +39,7 @@
 - Added GPT Search Bar
 - Implemented Multi-Language Feature in the App
 - Obtained OpenAI API Key
+- Memoisation for not making frequent api calls
 - Integrated GPT Search API Call                     # Integrating GPT3 Turbo api in app for suggestions.
 - Fetched GPT Movie Suggestions from TMDB
 - Created gptSlice and Added GPT Data to Store
