@@ -72,14 +72,14 @@ const Header: React.FC = () => {
                     </div>
                     {searchView &&
                         <div className='bg-opacity-70 flex justify-center mb-2 md:mb-0 md:mr-1 text-white z-30'>
-                            <select name="" id="" className='w-full md:w-24 rounded-lg  p-2 bg-red-700  justify-center flex md:w-30 md:h-10  text-blue-900 z-30 hover:underline' onChange={handleLanguageChange}>
+                            <select name="" data-testid="Language" className='w-full md:w-24 rounded-lg  p-2 bg-red-700  justify-center flex md:w-30 md:h-10  text-blue-900 z-30 hover:underline' onChange={handleLanguageChange}>
                                 {SUPPORTED_LANGUAGES.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
                             </select>
                         </div>
                     }
 
                     <div className=' bg-opacity-70 flex justify-center text-white md:mr-1 z-30'>
-                        <button onClick={handleLogout} className=' w-full mb-1 md:w-24 rounded-lg p-2 bg-red-700  justify-center flex md:h-10  text-blue-900 z-30 hover:underline'>Logout</button>
+                        <button onClick={handleLogout} className=' w-full mb-1 md:w-24 rounded-lg p-2 bg-red-700  justify-center flex md:h-10  text-blue-900 z-30 hover:underline' data-testId="Logout">Logout</button>
                     </div>
 
                     <div className=' bg-opacity-70 flex justify-center text-white  md:mr-1 z-30'>
