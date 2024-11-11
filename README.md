@@ -15,9 +15,11 @@ Configured Tailwind CSS for rapid and efficient styling.
 # Core Components:
 
 Built a responsive Header component.
-# Routing:
-
+# Routing and state management:
 Implemented app routing for smooth navigation between pages.
+# React redux is used for state management
+
+
 # Authentication:
 
 Developed a Login Form and a Sign-Up Form.
